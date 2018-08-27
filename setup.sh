@@ -17,6 +17,11 @@ if [ -z $DISTRO ]
 		exit 1
 fi
 
+# create an archives directory for packages
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+ARCHIVES="$DIR/archives"
+mkdir $ARCHIVES
+
 # run the scripts for the distro
 for f in ./$DISTRO-scripts/*.sh; do
 	echo "Running $f"
